@@ -9,5 +9,19 @@ namespace GradeBook.GradeBooks
         {
             this.Type = GradeBookType.Ranked;
         }
+
+        public override char GetLetterGrade(double averageGrade) 
+        {
+            List<Student> sorted = new List<Student>(Students);
+            sorted = sorted.sort();
+            
+            if (Student.length < 5) 
+                throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work");
+
+            return 'F';
+        }
+            
     }
+
+    
 }
